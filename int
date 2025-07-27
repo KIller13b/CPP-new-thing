@@ -1,0 +1,15 @@
+#include <iostream>
+#include<vector>
+
+using namespace std;
+
+int main()
+{
+    vector<int> numbers = {25, 45, 50, 100, 66, 1};
+
+    cout << numbers[0];          //Output will be 25
+
+    int len = numbers.size();         //It will be 6
+    
+ return 0;   
+}
