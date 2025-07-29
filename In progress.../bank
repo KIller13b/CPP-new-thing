@@ -1,27 +1,24 @@
-#include <iostream>
-#include<conio.h>
-#include<string>
+#include<iostream>
 #include<vector>
+#include<conio.h>
+
 using namespace std;
 
-void display()
-{
-	cout << "\n\nDIsplaying.....";
-}
+int i, x;
+vector<string> acc_holder_name;
+vector<int> acc_number;
+vector<float> initial_balance;
 
 int main()
 {
-	vector<string> acc_holder_name;
-	vector<int> acc_number;
-	vector<float> initial_balance;
-
-	int choice;
-	while(true)
+    int choice;
+	while (true)
 	{
 		cout << "***BANK MANAGEMENT SYSTEM***";
 		cout << "\n\n1. Add account";
 		cout << "\n2. Display account";
-		cout << "\n3. Exit";
+		cout << "\n3. Deposit money";
+		cout << "\n4. Exit";
 		cout << "\n\nEnter your choice : ";
 		cin >> choice;
 
@@ -31,40 +28,92 @@ int main()
 			cout << "\n\nEnter the account holder name : ";
 			cin >> name;
 			acc_holder_name.push_back(name);
-			cout << "Enter account number : ";
 			int number;
+			cout << "Enter account number : ";
 			cin >> number;
 			acc_number.push_back(number);
 			int balance;
-			cout << "Enter initial balance : ";
+			cout << "Enter intial balance : ";
 			cin >> balance;
 			initial_balance.push_back(balance);
+			cout << "\n\nAccount created successfully !\n\n";
+			cout << "-------------------------------------------\n\n";
 		}
 
-		else if(choice == 3)
+		else if (choice == 2)
 		{
-			cout << "\n\nThank You";
-			cout << "\n\nEXITING.....";
-			break;
-		}
-
-		else if(choice == 2)
-		{
-			string yes = "Found !";
+			bool yo = false;
 			cout << "\n\nEnter your account number : ";
 			int a;
 			cin >> a;
-			for(int i=0;i<size(acc_number);i++)
+			for (i = 0; i < size(acc_number); i++)
 			{
-				if(a == acc_number[i])
+				if (a == acc_number[i])
 				{
-					cout << "\n" << yes;
-					display();
+					cout << "\nAccount Found !!";
+					yo = false;
 					break;
 				}
+				else
+				{
+					yo = true;
+				}
+			}
+			if (yo)
+			{
+				cout << "\nAccount not Found *_*";
+				cout << "\n\n-------------------------------------------\n\n";
+			}
+			if (yo==false)
+			{
+				cout << "\nDISPLAYING......\n\n";
+				cout << "Account Holder name : " << acc_holder_name[i] << "\n";
+				cout << "            Balance : $" << initial_balance[i] << "\n\n";
 			}
 		}
-		
+
+		else if (choice == 4)
+		{
+			cout << "\nThank You !";
+			cout << "\n\nEXITING.......";
+			break;
+		}
+
+		else if (choice == 3)    //In Progresss.....
+		{
+			int b;
+			bool to = false;
+			cout << "\n\nEnter account number : ";
+			cin >> b;
+			for (x = 0; x < size(acc_number); x++)
+			{
+				if (b == acc_number[x])
+				{
+					cout << "\n\nAccount Found !!";
+					to = false;
+				}
+				else
+				{
+					to = true;
+				}
+			}
+			if (to)
+			{
+				cout << "\nAccount not Found *_*";
+				cout << "\n\n-------------------------------------------\n\n";
+			}
+			if (to == false)
+			{
+				float enter;
+				cout << "\n\nEnter the amount : ";
+				cin >> enter;
+				cout << "\nLoading.......";
+				cout << "\n\nDeposting money amount of $" << enter << " to account number \"" << b << "\".....";
+				cout << "\n" << x << "\n";
+				initial_balance[x] = initial_balance[x] + enter;
+				cout << "\n\t\tDeposition Successfull !!";
+			}
+		}
 	}
 	return 0;
 }
