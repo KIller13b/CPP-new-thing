@@ -1,0 +1,70 @@
+#include <iostream>
+#include<conio.h>
+#include<string>
+#include<vector>
+using namespace std;
+
+void display()
+{
+	cout << "\n\nDIsplaying.....";
+}
+
+int main()
+{
+	vector<string> acc_holder_name;
+	vector<int> acc_number;
+	vector<float> initial_balance;
+
+	int choice;
+	while(true)
+	{
+		cout << "***BANK MANAGEMENT SYSTEM***";
+		cout << "\n\n1. Add account";
+		cout << "\n2. Display account";
+		cout << "\n3. Exit";
+		cout << "\n\nEnter your choice : ";
+		cin >> choice;
+
+		if (choice == 1)
+		{
+			string name;
+			cout << "\n\nEnter the account holder name : ";
+			cin >> name;
+			acc_holder_name.push_back(name);
+			cout << "Enter account number : ";
+			int number;
+			cin >> number;
+			acc_number.push_back(number);
+			int balance;
+			cout << "Enter initial balance : ";
+			cin >> balance;
+			initial_balance.push_back(balance);
+		}
+
+		else if(choice == 3)
+		{
+			cout << "\n\nThank You";
+			cout << "\n\nEXITING.....";
+			break;
+		}
+
+		else if(choice == 2)
+		{
+			string yes = "Found !";
+			cout << "\n\nEnter your account number : ";
+			int a;
+			cin >> a;
+			for(int i=0;i<size(acc_number);i++)
+			{
+				if(a == acc_number[i])
+				{
+					cout << "\n" << yes;
+					display();
+					break;
+				}
+			}
+		}
+		
+	}
+	return 0;
+}
