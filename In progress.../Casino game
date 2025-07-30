@@ -1,3 +1,65 @@
+#include<iostream>
+#include<cstdlib>
+#include <string>
+#include<thread>
+#include<chrono>
+
+using namespace std;
+
+string name;
+double bet;
+double initial_deposit;
+
+void data()
+{
+	cout << "\n\nEnter your name : ";
+	cin >> name;
+    cout << "\nWelcome " << name << ". We are glad to have you here !";
+	cout << "\n\nNow please deposit your initial amount of money : ";
+	cin >> initial_deposit;
+	this_thread::sleep_for(chrono::seconds(2));
+	cout << "\n\t\t\tThank You !!";
+	cout << "\nNow place your bet : ";
+	cin >> bet;
+	this_thread::sleep_for(chrono::seconds(1));
+	cout << "You have placed a bet of $" << bet;
+}
+
+int main()
+{
+	srand(time(NULL));
+	cout << "\t\t\t\t\t   Number Guessing Game !!";
+	int random_number = rand() % 10;
+	cout << "\n\nThe rules are simple:\n\n> First enter your name.\n> Second register some amount of money \n> Third place a bet.\n> Then just pick a number from 0-9.\n> If it matches the winning number then you will win 10 times the betted money. \n> But if you loose you will loose your bet money.\n";
+	string question1 = "yes";
+	string question2 = "YES";
+	string question = "Yes";
+	string ans;
+	cout << "\nDid you understand the rules ?";
+	cout << "\nType here : ";
+	cin >> ans;
+	if (ans.compare(question)==0)
+	{
+		cout << "\n\nHURRAY !!!\n";
+		data();
+	}
+	else if (ans.compare(question1) == 0)
+	{
+		cout << "\n\nHURRAY !!";
+		data();
+	}
+	else if (ans.compare(question2) == 0)
+	{
+		cout << "\n\nHURRAY !!";
+		data();
+	}
+	else
+	{
+		cout << "\n\nOH Noooo.....\n";
+	}
+	return 0;
+}
+
 /*
 Welcome message and rules display.
 Player enters name and initial deposit.
@@ -8,4 +70,3 @@ The guessed number is compared to the winning number.
 Player's balance is updated based on win or loss.
 Player is prompted to play again or quit.
 */
-
