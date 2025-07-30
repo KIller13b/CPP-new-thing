@@ -1,0 +1,11 @@
+/*
+Welcome message and rules display.
+Player enters name and initial deposit.
+Player places a bet.
+Player guesses a number.
+A random winning number is generated.
+The guessed number is compared to the winning number.
+Player's balance is updated based on win or loss.
+Player is prompted to play again or quit.
+*/
+
