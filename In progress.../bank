@@ -7,19 +7,19 @@ using namespace std;
 
 int main()
 {
-	int i, x, allocate;
-    vector<string> acc_holder_name;
-    vector<int> acc_number;
-    vector<float> initial_balance;
-    int choice;
+	int i, x, allocate, y;
+	vector<string> acc_holder_name;
+	vector<int> acc_number;
+	vector<float> initial_balance;
+	int choice;
 	while (true)
 	{
 		cout << "***BANK MANAGEMENT SYSTEM***";
 		cout << "\n\n1. Add account";
 		cout << "\n2. Display account";
 		cout << "\n3. Deposit money";
-		cout << "\n4. Exit";
-		cout << "\n5. Checking";
+		cout << "\n4. Withdraw money";
+		cout << "\n5. Exit";
 		cout << "\n\nEnter your choice : ";
 		cin >> choice;
 
@@ -65,22 +65,23 @@ int main()
 				cout << "\nAccount not Found *_*";
 				cout << "\n\n-------------------------------------------\n\n";
 			}
-			if (yo==false)
+			if (yo == false)
 			{
 				cout << "\nDISPLAYING......\n\n";
 				cout << "Account Holder name : " << acc_holder_name[i] << "\n";
-				cout << "            Balance : $" << initial_balance[i] << "\n\n";
+				cout << "            Balance : $" << initial_balance[i] ;
+				cout << "\n\n-------------------------------------------\n\n";
 			}
 		}
 
-		else if (choice == 4)
+		else if (choice == 5)
 		{
 			cout << "\nThank You !";
 			cout << "\n\nEXITING.......";
 			break;
 		}
 
-		else if (choice == 3)    //In Progresss.....
+		else if (choice == 3)   
 		{
 			int b;
 			bool to = false;
@@ -91,8 +92,6 @@ int main()
 				if (b == acc_number[x])
 				{
 					cout << "\n\nAccount Found !!\n";
-					cout << x << "\n";
-					cout << size(acc_number);
 					to = false;
 					break;
 				}
@@ -104,7 +103,6 @@ int main()
 			if (to)
 			{
 				cout << "\nAccount not Found *_*\n";
-				cout << x << "\n";
 				cout << "\n\n-------------------------------------------\n\n";
 			}
 			if (to == false)
@@ -114,21 +112,54 @@ int main()
 				cin >> enter;
 				cout << "\nLoading.......";
 				cout << "\n\nDeposting money amount of $" << enter << " to account number \"" << b << "\".....";
-				cout << "\n" << x << "\n";
 				initial_balance[x] = initial_balance[x] + enter;
 				cout << "\n\t\tDeposition Successfull !!";
+				cout << "\n\n-------------------------------------------\n\n";
 			}
 		}
-		else if (choice==5)
+
+		else if (choice == 4)  
 		{
-			cout << "\n\n YOOooo" << "\n\n";
-			for (i=0;i<size(acc_number);i++)
+			int c;
+			bool we = false;
+			cout << "\n\nEnter the account number : ";
+			cin >> c;
+			for (y = 0; y < size(acc_number); y++)
 			{
-				cout << i;
-				cout << "\n";
+				if (c == acc_number[y])
+				{
+					cout << "\n\nAccount Found !!\n";
+					we = false;
+					break;
+				}
+				else
+				{
+					we = false;
+				}
+			}
+			if (we)
+			{
+				cout << "\nAccount not Found *_*\n";
+				cout << "\n\n-------------------------------------------\n\n";
+			}
+			if (we == false)
+			{
+				float entere;
+				cout << "\n\nEnter the amount : ";
+				cin >> entere;
+				cout << "\nLoading.......";
+				cout << "\n\nWithdrawing money amount of $" << entere << " to account number \"" << c << "\".....";
+				initial_balance[y] = initial_balance[y] - entere;
+				cout << "\n\t\tWithdrawn Successfull !!";
+				cout << "\n\n-------------------------------------------\n\n";
 			}
 		}
-		
+		else
+		{
+			cout << "\n\n\t\t\t\tERROR *_*";
+			cout << "\n\nPlease try again.........\n";
+			cout << "\n\n-------------------------------------------\n\n";
+			}
 	}
 	return 0;
 }
