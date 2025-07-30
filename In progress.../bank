@@ -4,13 +4,13 @@
 
 using namespace std;
 
-int i, x;
-vector<string> acc_holder_name;
-vector<int> acc_number;
-vector<float> initial_balance;
 
 int main()
 {
+	int i, x, allocate;
+    vector<string> acc_holder_name;
+    vector<int> acc_number;
+    vector<float> initial_balance;
     int choice;
 	while (true)
 	{
@@ -19,6 +19,7 @@ int main()
 		cout << "\n2. Display account";
 		cout << "\n3. Deposit money";
 		cout << "\n4. Exit";
+		cout << "\n5. Checking";
 		cout << "\n\nEnter your choice : ";
 		cin >> choice;
 
@@ -89,8 +90,11 @@ int main()
 			{
 				if (b == acc_number[x])
 				{
-					cout << "\n\nAccount Found !!";
+					cout << "\n\nAccount Found !!\n";
+					cout << x << "\n";
+					cout << size(acc_number);
 					to = false;
+					break;
 				}
 				else
 				{
@@ -99,7 +103,8 @@ int main()
 			}
 			if (to)
 			{
-				cout << "\nAccount not Found *_*";
+				cout << "\nAccount not Found *_*\n";
+				cout << x << "\n";
 				cout << "\n\n-------------------------------------------\n\n";
 			}
 			if (to == false)
@@ -114,6 +119,16 @@ int main()
 				cout << "\n\t\tDeposition Successfull !!";
 			}
 		}
+		else if (choice==5)
+		{
+			cout << "\n\n YOOooo" << "\n\n";
+			for (i=0;i<size(acc_number);i++)
+			{
+				cout << i;
+				cout << "\n";
+			}
+		}
+		
 	}
 	return 0;
 }
