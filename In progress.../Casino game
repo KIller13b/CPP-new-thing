@@ -19,16 +19,28 @@ void data()
 	cin >> initial_deposit;
 	this_thread::sleep_for(chrono::seconds(2));
 	cout << "\n\t\t\tThank You !!";
-	cout << "\nNow place your bet : ";
-	cin >> bet;
+	
+	cout << "\n\nLoading..";
+	this_thread::sleep_for(chrono::milliseconds(99));
+	cout << ".";
+	this_thread::sleep_for(chrono::milliseconds(99));
+	cout << ".";
+	this_thread::sleep_for(chrono::milliseconds(99));
+	cout << ".";
+	this_thread::sleep_for(chrono::milliseconds(99));
+	cout << ".";
+	this_thread::sleep_for(chrono::milliseconds(99));
+	cout << ".";
+	this_thread::sleep_for(chrono::milliseconds(99));
+	cout << ".";
 	this_thread::sleep_for(chrono::seconds(1));
-	cout << "You have placed a bet of $" << bet;
+	cout << "\n";
 }
 
 int main()
 {
 	srand(time(NULL));
-	cout << "\t\t\t\t\t   Number Guessing Game !!";
+	cout << "\t\t\t\t\t\t\tNumber Guessing Game !!";
 	int random_number = rand() % 10;
 	cout << "\n\nThe rules are simple:\n\n> First enter your name.\n> Second register some amount of money \n> Third place a bet.\n> Then just pick a number from 0-9.\n> If it matches the winning number then you will win 10 times the betted money. \n> But if you loose you will loose your bet money.\n";
 	string question1 = "yes";
@@ -56,6 +68,77 @@ int main()
 	else
 	{
 		cout << "\n\nOH Noooo.....\n";
+		data();
+	}
+
+	cout << "\nLet's start the game !!\n";
+	this_thread::sleep_for(chrono::milliseconds(150));
+	
+	int choice = 99;
+	while (choice!=0)
+	{
+		cout << "\nNow place your bet : ";
+		cin >> bet;
+		this_thread::sleep_for(chrono::seconds(1));
+
+		if (bet > initial_deposit)
+		{
+			cout << "You cannot place a bet that exceeds your initial deposited money !";
+			this_thread::sleep_for(chrono::seconds(3));
+			cout << "\n\nPlease place your bet again : ";
+			cin >> bet;
+		}
+
+		this_thread::sleep_for(chrono::seconds(1));
+
+		cout << "\nYou have placed a bet of $" << bet;
+		cout << "\n\n";
+
+		cout << "Pick a number from 0-9 : ";
+		int q;
+		cin >> q;
+
+		this_thread::sleep_for(chrono::seconds(4));
+
+		if (q == random_number)
+		{
+			cout << "\n\t\t\tYou have won the bet !!!";
+			cout << "\n\nYou have won $" << bet * 10;
+			initial_deposit = initial_deposit + (bet * 10);
+		}
+		else
+		{
+			cout << "\n\t\t\tYou loose !";
+			cout << "\n\nYou have lost $" << bet;
+			initial_deposit = initial_deposit - bet;
+		}
+
+		this_thread::sleep_for(chrono::seconds(2));
+
+		cout << "\n\nYour balance is : $" << initial_deposit;
+
+		this_thread::sleep_for(chrono::seconds(1));
+
+		if (initial_deposit <= 0)
+		{
+			cout << "\n\t\t\tOHH nooo!!! \n\t\t\tYou have lost all your money.\n";
+			break;
+		}
+
+		this_thread::sleep_for(chrono::seconds(1));
+
+		cout << "\n\nDo you wish to continue or quit the game ?\n\n";
+		cout << "Press \"0\" to quit or press \"1\" to continue playing.";
+		cin >> choice;
+
+		this_thread::sleep_for(chrono::seconds(2));
+		cout << "\n";
+
+	}
+
+	if (choice == 0)
+	{
+		cout << "\n\n\t\t\tThank you for playing :)\n";
 	}
 	return 0;
 }
