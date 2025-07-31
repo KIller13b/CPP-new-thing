@@ -1,5 +1,6 @@
 #include<iostream>
 #include<cstdlib>
+#include<ctime>
 #include <string>
 #include<thread>
 #include<chrono>
@@ -39,9 +40,7 @@ void data()
 
 int main()
 {
-	srand(time(NULL));
 	cout << "\t\t\t\t\t\t\tNumber Guessing Game !!";
-	int random_number = rand() % 10;
 	cout << "\n\nThe rules are simple:\n\n> First enter your name.\n> Second register some amount of money \n> Third place a bet.\n> Then just pick a number from 0-9.\n> If it matches the winning number then you will win 10 times the betted money. \n> But if you loose you will loose your bet money.\n";
 	string question1 = "yes";
 	string question2 = "YES";
@@ -77,6 +76,8 @@ int main()
 	int choice = 99;
 	while (choice!=0)
 	{
+		srand(time(NULL));
+		int random_number = rand() % 10;
 		cout << "\nNow place your bet : ";
 		cin >> bet;
 		this_thread::sleep_for(chrono::seconds(1));
@@ -112,6 +113,8 @@ int main()
 			cout << "\n\nYou have lost $" << bet;
 			initial_deposit = initial_deposit - bet;
 		}
+
+		//cout << "\n" << random_number << "\n";
 
 		this_thread::sleep_for(chrono::seconds(2));
 
