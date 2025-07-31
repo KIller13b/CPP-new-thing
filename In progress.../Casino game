@@ -151,5 +151,5 @@ Player guesses a number.
 A random winning number is generated.
 The guessed number is compared to the winning number.
 Player's balance is updated based on win or loss.
-Player is prompted to play again or quit..
+Player is prompted to play again or quit.
 */
