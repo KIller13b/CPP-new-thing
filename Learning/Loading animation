@@ -1,0 +1,47 @@
+#include <iostream>
+#include <thread>
+#include <chrono>
+using namespace std;
+int main()
+{
+    string yo = "Loading";
+    string yoy = "..........";
+    cout << "\n\n";
+    cout << "\t\t" << yo;
+    for (int i = 0; i < yoy.size(); i++)
+    {
+        this_thread::sleep_for(chrono::milliseconds(200));
+        cout << yoy[i];
+    }
+    for (int j = 0; j < 7; j++)
+    {
+        cout << "\b \b";
+        this_thread::sleep_for(chrono::milliseconds(10));
+    }
+    for (int i = 0; i < (yoy.size()-5); i++)
+    {
+        this_thread::sleep_for(chrono::milliseconds(300));
+        cout << yoy[i];
+    }
+    for (int j = 0; j < 5; j++)
+    {
+        cout << "\b \b";
+        this_thread::sleep_for(chrono::milliseconds(10));
+    }
+    for (int i = 0; i < (yoy.size()-4); i++)
+    {
+        this_thread::sleep_for(chrono::milliseconds(300));
+        cout << yoy[i];
+    }
+    for (int j = 0; j < 4; j++)
+    {
+        cout << "\b \b";
+        this_thread::sleep_for(chrono::milliseconds(10));
+    }
+    for (int i = 0; i < (yoy.size()-5); i++)
+    {
+        this_thread::sleep_for(chrono::milliseconds(300));
+        cout << yoy[i];
+    }
+   return 0;
+}
