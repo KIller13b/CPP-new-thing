@@ -1,0 +1,12 @@
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+	char name[25];
+	cout << "Enter the name : ";
+	cin.getline(name, 25);      //in brackets (char, it's size mentioned above);
+	cout << "\n NAME : " << name;
+	return 0;
+}
