@@ -1,0 +1,10 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    cout << "HEllo world";
+    this_thread::sleep_for(chrono::seconds(1));
+    cout << "\b \b";
+}
